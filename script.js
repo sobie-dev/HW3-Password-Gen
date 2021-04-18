@@ -1,10 +1,7 @@
 
 var generateBtn = document.querySelector("#generate");
 var enter;
-// var confirmNum;
-// var confirmChar;
-// var confirmUpper;
-// var confirmLower;
+
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 var number = ["0","1","2","3","4","5","6","7","8","9",]
@@ -41,15 +38,23 @@ function generatePassword() {
       if (confirmNum) {
         combineChar = number;
       }
-      console.log(combineChar);
+      
       confirmUpper = confirm("Will this contain Uppercase letters?");
-      if (confirmUpper) {
+       if (confirmUpper) {
         combineChar = combineChar.concat(upperCase);
       }
-      console.log(combineChar);
+      
       confirmLower = confirm("Will this contain Lowercase letters?");
+      if (confirmLower) {
+        combineChar = combineChar.concat(lowerCase);
+      }
+
+
       confirmChar = confirm("Will this contain special characters?");
-      console.log(confirmNum, confirmChar, confirmLower, confirmUpper)
+      if (confirmChar) {
+        combineChar = combineChar.concat(symbol);
+      }
+      
       for (let index = 0; index < enter; index++) {
         newPassword = newPassword + combineChar[Math.floor(Math.random() * combineChar.length)];
       }
